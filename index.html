@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Investor's Blueprint | Book A Free Strategy Session</title>
+  <meta name="description" content="You bring the capital. I make sure you enter the right deal, build it the right way, and exit for a profit, even in this market." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #161616;
+      --body: #4a4a4a;
+      --muted: #6b6b6b;
+      --gold: #c2ab58;
+      --gold-dark: #a08a3a;
+      --gold-text: #9c8633;
+      --cream: #faf7e8;
+      --cream-border: #e6dcae;
+      --sand: #f5f3ee;
+      --line: #e7e5e0;
+      --white: #ffffff;
+      --radius: 14px;
+      --cta-url: "#book";
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "DM Sans", system-ui, -apple-system, sans-serif;
+      color: var(--body);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+
+    .container { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+    /* ---------- Shared ---------- */
+    .pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--cream);
+      border: 1px solid var(--cream-border);
+      border-radius: 999px;
+      padding: 8px 20px;
+      font-size: 14px; font-weight: 600; color: var(--ink);
+    }
+    .pill .gold { color: var(--gold-text); }
+
+    h1, h2 {
+      color: var(--ink);
+      font-weight: 700;
+      letter-spacing: -0.055em;
+      line-height: 1.05;
+    }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: var(--gold);
+      color: var(--ink);
+      font-weight: 700; font-size: 16px;
+      text-decoration: none;
+      padding: 18px 36px;
+      border: 1px solid var(--gold-dark);
+      border-radius: 2px;
+      box-shadow: 0 8px 22px rgba(160, 138, 58, 0.28);
+      transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    }
+    .btn:hover { background: #cbb565; transform: translateY(-1px); box-shadow: 0 12px 26px rgba(160, 138, 58, 0.34); }
+    .btn svg { width: 16px; height: 16px; }
+
+    /* ---------- Hero ---------- */
+    .hero { padding: 32px 0 0; text-align: center; }
+    .hero h1 {
+      font-size: clamp(32px, 4.6vw, 46px);
+      max-width: 780px;
+      margin: 30px auto 0;
+    }
+    .hero .sub {
+      max-width: 700px; margin: 26px auto 0;
+      font-size: 18px; line-height: 1.65; color: var(--body);
+    }
+
+    .video-wrap {
+      position: relative;
+      max-width: 680px;
+      margin: 38px auto 0;
+    }
+    .video-wrap::before {
+      content: ""; position: absolute; inset: -60px -80px;
+      background: radial-gradient(ellipse at center, rgba(0,0,0,0.06), transparent 65%);
+      z-index: -1;
+    }
+    .video {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: #1b1b1b;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+    }
+    .video iframe, .video video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    /* Placeholder until a real embed is dropped in */
+    .video-placeholder {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px;
+      background: linear-gradient(135deg, #2a2618, #141414);
+      color: #fff; text-align: center; cursor: pointer;
+    }
+    .video-placeholder .play {
+      width: 84px; height: 84px; border-radius: 50%;
+      background: var(--gold);
+      display: grid; place-items: center;
+      box-shadow: 0 0 0 10px rgba(194,171,88,0.18);
+      transition: transform .2s ease;
+    }
+    .video-placeholder:hover .play { transform: scale(1.06); }
+    .video-placeholder .play svg { width: 30px; height: 30px; margin-left: 5px; fill: var(--ink); }
+    .video-placeholder span { font-weight: 600; font-size: 15px; opacity: .85; }
+
+    .hero-cta { margin-top: 34px; }
+    .guarantee-pill { margin-top: 22px; font-size: 14px; }
+    .guarantee-pill svg { width: 16px; height: 16px; color: var(--gold-text); }
+
+    .call-list { max-width: 500px; margin: 44px auto 0; text-align: left; }
+    .eyebrow {
+      font-size: 11.5px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--muted); text-align: center; margin-bottom: 16px;
+    }
+    .call-list ul { list-style: none; display: grid; gap: 10px; }
+    .call-list li { display: flex; gap: 14px; font-size: 15px; line-height: 1.55; }
+    .call-list li svg { flex: none; width: 14px; height: 14px; margin-top: 5px; color: var(--gold); }
+
+    .stats {
+      margin-top: 44px;
+      border-top: 1px solid var(--line);
+      padding: 40px 0 56px;
+      display: flex; justify-content: center;
+    }
+    .stat { padding: 0 48px; text-align: center; min-width: 180px; }
+    .stat + .stat { border-left: 1px solid var(--line); }
+    .stat strong { display: block; font-size: 22px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1.2; }
+    .stat small {
+      display: block; margin-top: 8px;
+      font-size: 10.5px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ---------- Guarantees band ---------- */
+    .band { background: var(--sand); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .guarantees { padding: 40px 0; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+    .g-card {
+      background: var(--white); border: 1px solid var(--line); border-radius: 12px;
+      width: 342px; padding: 22px 26px; text-align: center;
+    }
+    .g-card h3 { color: var(--ink); font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+    .g-card p { font-size: 13.5px; line-height: 1.6; }
+
+    /* ---------- Case studies ---------- */
+    .results { padding: 84px 0 96px; text-align: center; }
+    .results .container { max-width: 1140px; }
+    .results h2 { font-size: clamp(32px, 4.4vw, 46px); }
+    .results .sub { max-width: 540px; margin: 24px auto 0; font-size: 18px; }
+    .cases {
+      margin: 52px auto 0; max-width: 1080px;
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 18px;
+    }
+    .case {
+      flex: 0 1 348px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-top: 3px solid var(--gold);
+      border-radius: 12px;
+      padding: 26px 22px 22px;
+      text-align: left;
+      display: flex; flex-direction: column;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+    .case-head { display: flex; align-items: center; gap: 12px; }
+    .case-icon {
+      width: 44px; height: 44px; border-radius: 50%; flex: none;
+      background: var(--cream); border: 1px solid var(--cream-border);
+      display: grid; place-items: center; color: var(--gold-text);
+    }
+    .case-icon svg { width: 18px; height: 18px; }
+    .case-head h3 { font-size: 15.5px; font-weight: 700; color: var(--ink); line-height: 1.3; }
+    .case-head p { font-size: 13px; color: var(--gold-text); }
+    .case .num { margin-top: 18px; font-size: 30px; font-weight: 700; color: var(--ink); letter-spacing: -0.03em; line-height: 1.2; }
+    .case .label { font-size: 13px; color: var(--muted); }
+    .case .desc { margin-top: 14px; font-size: 14.5px; line-height: 1.65; flex: 1; }
+    .case .more {
+      margin-top: 20px; font-size: 13.5px; font-weight: 700; color: var(--gold-text); text-decoration: none;
+    }
+    .case .more:hover { text-decoration: underline; }
+
+    /* ---------- About ---------- */
+    .about { padding: 82px 0 80px; }
+    .about-card {
+      max-width: 1040px; margin: 0 auto;
+      background: var(--white); border: 1px solid var(--line); border-radius: 16px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.06);
+      padding: 44px 44px 44px;
+      display: grid; grid-template-columns: 376px 1fr; gap: 36px; align-items: start;
+    }
+    .about-photo {
+      margin-top: 24px;
+      border-radius: 12px; overflow: hidden;
+      aspect-ratio: 376 / 250;
+      background: linear-gradient(135deg, #e9d79a, #b99b48);
+    }
+    .about-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .about h2 { font-size: clamp(32px, 4vw, 44px); }
+    .about .byline {
+      margin-top: 12px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--gold-text);
+    }
+    .about .copy { margin-top: 26px; display: grid; gap: 14px; font-size: 15.5px; line-height: 1.7; }
+    .about-cta { text-align: center; margin-top: 52px; }
+
+    /* ---------- Footer ---------- */
+    footer { padding: 36px 0 56px; }
+    .foot { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+    .logo { display: flex; align-items: center; gap: 8px; font-weight: 700; color: var(--ink); font-size: 17px; text-decoration: none; }
+    .logo svg { width: 22px; height: 18px; }
+    .foot-links { text-align: right; font-size: 13.5px; display: grid; gap: 4px; }
+    .foot-links a { color: var(--muted); text-decoration: none; }
+    .foot-links a:hover { color: var(--ink); }
+    .foot-links small { color: #9a9a9a; font-size: 12.5px; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 860px) {
+      .about-card { grid-template-columns: 1fr; padding: 28px; }
+      .about-photo { margin-top: 0; }
+    }
+    @media (max-width: 640px) {
+      .hero .sub, .results .sub { font-size: 16px; }
+      .stats { flex-direction: column; gap: 28px; }
+      .stat { padding: 0; }
+      .stat + .stat { border-left: 0; }
+      .btn { padding: 16px 24px; font-size: 15px; }
+      .guarantee-pill { font-size: 12.5px; padding: 8px 14px; }
+      .case { flex-basis: 100%; }
+      .foot { flex-direction: column; align-items: flex-start; }
+      .foot-links { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="container">
+      <div class="pill">For Investors With <span class="gold">$100K+</span> Ready To Deploy</div>
+
+      <h1>You Bring The Capital. I Make Sure You Enter The Right Deal, Build It The Right Way, And Exit For A Profit, Even In This Market.</h1>
+
+      <p class="sub">Give me 12 months. We’ll take one deal from lot to sale together, targeting $100K to $300K in profit, and you keep the system for every deal after. No retainer. No cut of your profit.</p>
+
+      <div class="video-wrap">
+        <div class="video" id="vsl">
+          <!-- Replace this placeholder with your Wistia / Vidalytics / YouTube embed -->
+          <div class="video-placeholder" role="button" aria-label="Play video">
+            <div class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></div>
+            <span>Watch the video</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-cta">
+        <a class="btn" href="#book">Book A Free Strategy Session
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+
+      <div class="pill guarantee-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+        Coaching Until Your Property Sells + 7-Day Money Back
+      </div>
+
+      <div class="call-list">
+        <p class="eyebrow">On This Call We’ll:</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>Pinpoint the biggest risks for an investor in your position</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>Show you what size deal your capital can take on</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>Lay out the full path for your situation, whether you’re looking for a deal or already under contract</li>
+        </ul>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><strong>$10M+</strong><small>In Sales</small></div>
+        <div class="stat"><strong>230+</strong><small>Real Estate<br />Transactions</small></div>
+        <div class="stat"><strong>8</strong><small>Active Developments,<br />On Track To Net $3M</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= GUARANTEES ================= -->
+  <section class="band">
+    <div class="container guarantees">
+      <div class="g-card">
+        <h3>7-Day Money Back</h3>
+        <p>Go through onboarding and build your 12 month roadmap with me. Not the right fit? Tell me within 7 days and get a full refund.</p>
+      </div>
+      <div class="g-card">
+        <h3>Coaching Until Your Property Sells</h3>
+        <p>If your project doesn’t sell within 12 months of starting, I keep coaching you until it does, at no extra cost.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= RESULTS ================= -->
+  <section class="results">
+    <div class="container">
+      <h2>What Happens When<br />You Follow The System</h2>
+      <p class="sub">Every deal below was run on the exact system you’d get inside Investor’s Blueprint.</p>
+
+      <div class="cases" id="cases"></div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section class="band about">
+    <div class="container">
+      <div class="about-card">
+        <div class="about-photo">
+          <!-- Drop the founder photo at assets/founder.jpg -->
+          <img src="assets/founder.jpg" alt="Adriel Hsu standing in front of a home under construction" onerror="this.remove()" />
+        </div>
+        <div>
+          <h2>Why Listen To Me?</h2>
+          <p class="byline">Adriel Hsu – Investor's Blueprint Founder</p>
+          <div class="copy">
+            <p>Honestly? You shouldn't listen to me right away. I'm a complete stranger on the internet.</p>
+            <p>I could tell you about my 230+ real estate transactions, 40+ flips, 9 new construction homes completed, the $10M+ I've raised in private capital, the 235-unit self-storage deal I wholesaled, or the $1M+ in equity I created for my first mentee on a single 21-unit BRRRR.</p>
+            <p>Or I could tell you about the 8 active development deals on track to net me a total of $3M in profit.</p>
+            <p>But that doesn't matter. What matters is you and your build.</p>
+            <p>This is the program I wish somebody had handed me on my first deal, to avoid so many expensive mistakes.</p>
+            <p>I went from being an environmental engineer at Georgia Tech with no construction family, no rich connections, and no portfolio handed to me, to going full-time in real estate in 2021.</p>
+            <p>I've been doing this for over a decade now. I'm not a guru. I'm an operator who still buys, builds, and develops every single week.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-cta">
+        <a class="btn" href="#book">Schedule My Free Strategy Session
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <div class="container foot">
+      <a class="logo" href="#">
+        <svg viewBox="0 0 22 18" fill="#c2ab58"><path d="M5 0h6L6 18H0zM16 0h6l-5 18h-6z"/></svg>
+        Investor's Blueprint
+      </a>
+      <div class="foot-links">
+        <a href="#terms">Terms Of Service</a>
+        <a href="#privacy">Privacy Policy</a>
+        <small>© 2026 Propertyhsu – a brand of SETX Properties LLC</small>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Case studies — edit here; "link" points to each full breakdown page.
+    const CASES = [
+      { title: "$2.2M Luxury Build (2026-2027)", type: "Ground Up Luxury Development", num: "$400K", label: "Projected Profit",
+        desc: "While most developers are stalling, I moved into the luxury market, where buyers are still buying. One home, a $2.2M projected sale, and about $400K in profit.", link: "#" },
+      { title: "2011 Greg", type: "Land Subdivide And Sell", num: "$173,850", label: "Net Profit",
+        desc: "I bought raw land for $85K and handled the re-plat, plans and permits. Then I sold it shovel ready to a builder for $355K, without pouring a single foundation.", link: "#" },
+      { title: "3502 Noah", type: "Five Home Ground Up Development", num: "$319,837", label: "Net Profit",
+        desc: "I took one lot and built five homes from the ground up. All in at $1.54M, sold all five for $1.94M, about $64K profit per house.", link: "#" },
+      { title: "Student Duplex", type: "First Ground Up Build", num: "~$100K", label: "Profit Available",
+        desc: "His first ground up project, built with my system, subs and suppliers. All in at $360K with a $470K market value. He could sell today but chose to keep it for passive income.", link: "#" },
+      { title: "3411 Yellowstone", type: "Land Subdivide And Sell", num: "$112,648", label: "Net Profit",
+        desc: "Another land deal with no build. I subdivided the land, got it shovel ready and sold the lots to a developer for a six figure profit.", link: "#" },
+    ];
+
+    const houseIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg>';
+
+    document.getElementById("cases").innerHTML = CASES.map(c => `
+      <article class="case">
+        <div class="case-head">
+          <div class="case-icon">${houseIcon}</div>
+          <div><h3>${c.title}</h3><p>${c.type}</p></div>
+        </div>
+        <div class="num">${c.num}</div>
+        <div class="label">${c.label}</div>
+        <p class="desc">${c.desc}</p>
+        <a class="more" href="${c.link}">Full breakdown →</a>
+      </article>`).join("");
+  </script>
+</body>
+</html>
