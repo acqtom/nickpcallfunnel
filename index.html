@@ -251,6 +251,16 @@
     .brand-bar { padding: 26px 24px 0; display: flex; justify-content: center; }
     .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: #161616; font-weight: 700; font-size: 20px; letter-spacing: -0.02em; }
     .brand img { width: 44px; height: auto; }
+
+    /* ---------- Booking modal ---------- */
+    .modal { position: fixed; inset: 0; z-index: 100; display: none; align-items: center; justify-content: center; padding: 24px; background: rgba(15,15,15,0.6); }
+    .modal.open { display: flex; }
+    .modal-box { position: relative; width: 100%; max-width: 760px; height: min(640px, 85vh); background: #fff; border-radius: 16px; box-shadow: 0 30px 80px rgba(0,0,0,0.3); overflow: hidden; }
+    .modal-close { position: absolute; top: 12px; right: 12px; z-index: 2; width: 36px; height: 36px; border: 0; border-radius: 50%; background: #f1efe8; color: #161616; font-size: 22px; line-height: 1; cursor: pointer; }
+    .modal-close:hover { background: #e6e3d8; }
+    /* Replace .typeform-embed contents with the Typeform embed code */
+    .typeform-embed { width: 100%; height: 100%; display: grid; place-items: center; font-size: 22px; font-weight: 700; color: #6b6b6b; }
+    body.modal-open { overflow: hidden; }
   </style>
 </head>
 <body>
@@ -279,7 +289,7 @@
       </div>
 
       <div class="hero-cta">
-        <a class="btn" href="#book">Book A Free Strategy Session
+        <a class="btn" href="#book" data-open-booking>Book A Free Strategy Session
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </div>
@@ -354,7 +364,7 @@
       </div>
 
       <div class="about-cta">
-        <a class="btn" href="#book">Schedule My Free Strategy Session
+        <a class="btn" href="#book" data-open-booking>Schedule My Free Strategy Session
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </div>
@@ -404,6 +414,25 @@
         <p class="desc">${c.desc}</p>
         <a class="more" href="${c.link}">Full breakdown →</a>
       </article>`).join("");
+  </script>
+
+  <!-- ================= BOOKING MODAL ================= -->
+  <div class="modal" id="booking" role="dialog" aria-modal="true" aria-label="Book a free strategy session">
+    <div class="modal-box">
+      <button class="modal-close" type="button" aria-label="Close">&times;</button>
+      <div class="typeform-embed">Typeform goes here</div>
+    </div>
+  </div>
+  <script>
+    (() => {
+      const modal = document.getElementById("booking");
+      const open = e => { e.preventDefault(); modal.classList.add("open"); document.body.classList.add("modal-open"); modal.querySelector(".modal-close").focus(); };
+      const close = () => { modal.classList.remove("open"); document.body.classList.remove("modal-open"); };
+      document.querySelectorAll("[data-open-booking]").forEach(b => b.addEventListener("click", open));
+      modal.querySelector(".modal-close").addEventListener("click", close);
+      modal.addEventListener("click", e => { if (e.target === modal) close(); });
+      document.addEventListener("keydown", e => { if (e.key === "Escape") close(); });
+    })();
   </script>
 </body>
 </html>
