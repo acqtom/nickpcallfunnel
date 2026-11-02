@@ -196,9 +196,17 @@
     .case .label { font-size: 13px; color: var(--muted); }
     .case .desc { margin-top: 14px; font-size: 14.5px; line-height: 1.65; flex: 1; }
     .case .more {
-      margin-top: 20px; font-size: 13.5px; font-weight: 700; color: var(--gold-text); text-decoration: none;
+      margin-top: 20px; align-self: flex-start; background: none; border: 0; padding: 0; cursor: pointer; font-family: inherit;
+      font-size: 13.5px; font-weight: 700; color: var(--gold-text);
     }
     .case .more:hover { text-decoration: underline; }
+    .case .more span { display: inline-block; transition: transform .2s; }
+    .case .more[aria-expanded="true"] span { transform: rotate(90deg); }
+    .full-breakdown {
+      margin-top: 12px; padding: 14px 16px; border-radius: 10px;
+      background: var(--sand); border: 1px solid var(--line); font-size: 14px; color: var(--body);
+    }
+    .full-breakdown[hidden] { display: none; }
 
     /* ---------- About ---------- */
     .about { padding: 82px 0 80px; }
@@ -425,31 +433,34 @@
   <script>
     // Case studies — edit here; "link" points to each full breakdown page.
     const CASES = [
-      { title: "$2.2M Luxury Build (2026-2027)", type: "Ground Up Luxury Development", num: "$400K", label: "Projected Profit",
-        desc: "While most developers are stalling, I moved into the luxury market, where buyers are still buying. One home, a $2.2M projected sale, and about $400K in profit.", link: "#" },
-      { title: "2011 Greg", type: "Land Subdivide And Sell", num: "$173,850", label: "Net Profit",
-        desc: "I bought raw land for $85K and handled the re-plat, plans and permits. Then I sold it shovel ready to a builder for $355K, without pouring a single foundation.", link: "#" },
-      { title: "3502 Noah", type: "Five Home Ground Up Development", num: "$319,837", label: "Net Profit",
-        desc: "I took one lot and built five homes from the ground up. All in at $1.54M, sold all five for $1.94M, about $64K profit per house.", link: "#" },
-      { title: "Student Duplex", type: "First Ground Up Build", num: "~$100K", label: "Profit Available",
-        desc: "His first ground up project, built with my system, subs and suppliers. All in at $360K with a $470K market value. He could sell today but chose to keep it for passive income.", link: "#" },
-      { title: "3411 Yellowstone", type: "Land Subdivide And Sell", num: "$112,648", label: "Net Profit",
-        desc: "Another land deal with no build. I subdivided the land, got it shovel ready and sold the lots to a developer for a six figure profit.", link: "#" },
+      { title: "Callum Connor", type: "First Client · Car Detailing", num: "$18K/Year", label: "From One Client ($1.5K/Month)",
+        desc: "Callum was grinding 10-hour days trying to get his first deal over the line. Following the system, he landed his first car detailing client on a $1.5K/month retainer. That one client alone is worth $18K a year." },
+      { title: "Nikhil S", type: "Client Acquisition", num: "2 Clients", label: "Landed In 24 Hours",
+        desc: "Nikhil had tried every outreach method out there: cold calls, LinkedIn DMs, mass email campaigns and more. After switching to the AI Accelerators outreach system, he landed 2 new clients in just 24 hours." },
+      { title: "Atmwsbs .Com", type: "AI Automation Agency", num: "$120K/Year", label: "Run Rate (~$10K/Month, 3 Months Straight)",
+        desc: "This agency has hit roughly $10K every month for the last 3 months by selling websites, software, ERPs and the golden boy: AI automation. That's a $120K/year run rate." },
     ];
 
-    const houseIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg>';
+    const personIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>';
 
-    document.getElementById("cases").innerHTML = CASES.map(c => `
+    document.getElementById("cases").innerHTML = CASES.map((c, i) => `
       <article class="case">
         <div class="case-head">
-          <div class="case-icon">${houseIcon}</div>
+          <div class="case-icon">${personIcon}</div>
           <div><h3>${c.title}</h3><p>${c.type}</p></div>
         </div>
         <div class="num">${c.num}</div>
         <div class="label">${c.label}</div>
         <p class="desc">${c.desc}</p>
-        <a class="more" href="${c.link}">Full breakdown →</a>
+        <button class="more" type="button" aria-expanded="false" aria-controls="fb${i}">Full breakdown <span>→</span></button>
+        <div class="full-breakdown" id="fb${i}" hidden>Full breakdown here</div>
       </article>`).join("");
+
+    document.querySelectorAll(".case .more").forEach(btn => btn.addEventListener("click", () => {
+      const open = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", String(!open));
+      document.getElementById(btn.getAttribute("aria-controls")).hidden = open;
+    }));
   </script>
 
   <!-- ================= BOOKING MODAL ================= -->
