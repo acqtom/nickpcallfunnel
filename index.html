@@ -268,11 +268,42 @@
     .help { padding: 84px 0 92px; }
     .help .kicker-gold { text-align: center; }
     .help .sub { max-width: 680px; margin: 18px auto 0; text-align: center; font-size: 18px; color: var(--body); }
-    .help-list { max-width: 760px; margin: 48px auto 0; display: grid; gap: 34px; }
-    .help-item { border-left: 3px solid var(--gold); padding: 2px 0 2px 24px; }
-    .help-item .n { font-size: 11.5px; font-weight: 700; letter-spacing: .14em; color: var(--gold-text); }
-    .help-item h3 { margin-top: 4px; font-size: 20px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; }
-    .help-item p { margin-top: 8px; font-size: 15.5px; line-height: 1.8; color: var(--muted); }
+    .help-card {
+      position: relative; max-width: 860px; margin: 48px auto 0; background: #fff;
+      border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 20px 50px rgba(0,0,0,0.06);
+      padding: 44px 48px 40px;
+    }
+    .help-card::before {
+      content: ""; position: absolute; top: -1px; left: 15%; right: 15%; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .steps { position: relative; }
+    .steps::before {
+      content: ""; position: absolute; left: 21px; top: 22px; bottom: 22px; width: 2px;
+      background: linear-gradient(180deg, var(--cream-border), var(--gold));
+    }
+    .step { position: relative; display: grid; grid-template-columns: 44px 1fr; gap: 24px; padding-bottom: 30px; }
+    .step + .step .step-body { border-top: 1px solid var(--line); padding-top: 30px; }
+    .step + .step { padding-top: 0; }
+    .step + .step .step-num { margin-top: 30px; }
+    .step-num {
+      position: relative; z-index: 1; width: 44px; height: 44px; border-radius: 50%;
+      background: var(--cream); border: 1px solid var(--cream-border); color: var(--gold-text);
+      display: grid; place-items: center; font-weight: 700; font-size: 14px; box-shadow: 0 0 0 6px #fff;
+    }
+    .step h3 { font-size: 20px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1.3; margin-top: 9px; }
+    .step p { margin-top: 8px; font-size: 15.5px; line-height: 1.75; color: var(--muted); }
+    .step.result { padding-bottom: 0; align-items: center; }
+    .step.result .step-num { background: var(--gold); border-color: var(--gold-dark); color: var(--ink); }
+    .step.result .step-num svg { width: 18px; height: 18px; }
+    .step.result .step-body { border-top: 0; padding-top: 0; }
+    .step.result .step-num { margin-top: 0; }
+    .step.result h3 { margin-top: 0; }
+    .step.result h3 span { color: var(--gold-text); }
+    @media (max-width: 640px) {
+      .help-card { padding: 30px 22px 28px; }
+      .step { gap: 16px; }
+    }
     .help-cta { text-align: center; margin-top: 48px; }
 
     @media (max-width: 760px) {
@@ -439,31 +470,47 @@
       <p class="kicker-gold">How We Help You</p>
       <h2>The System Is Simple,<br />Here Is Every Piece Of It</h2>
       <p class="sub">Most programs teach you what to do, we hand you everything you need to actually do it.</p>
-      <div class="help-list">
-        <div class="help-item">
-          <div class="n">01</div>
-          <h3>The Right Offer, From Day One</h3>
-          <p>We hand you the exact offers and niches generating the most revenue in this space right now. Then we show you how to position yourself so that when you walk into a conversation with a business owner, your lack of experience, portfolio, or track record never becomes a reason they say no.</p>
-        </div>
-        <div class="help-item">
-          <div class="n">02</div>
-          <h3>AI Systems and Automation</h3>
-          <p>You get access to our full library of pre-built AI workflows, systems, and SOPs so you can deliver high-quality results for clients from day one, without building anything from scratch.</p>
-        </div>
-        <div class="help-item">
-          <div class="n">03</div>
-          <h3>Client Acquisition System</h3>
-          <p>We give you the exact outreach methods, scripts, and ad creatives our students are using right now to book calls with qualified business owners, so your calendar fills without you guessing what to say or who to target.</p>
-        </div>
-        <div class="help-item">
-          <div class="n">04</div>
-          <h3>Dedicated Sales Coach</h3>
-          <p>A real, active salesperson inside the program whose only job is to get you closing. They walk you through every moment of the sales call, from opening to signed deal, so by the time you get on your first real call, you have already done it.</p>
-        </div>
-        <div class="help-item">
-          <div class="n">05</div>
-          <h3>Community and Direct Support</h3>
-          <p>You get direct access to Nick and his team, plus a community of people at every stage of the same journey, from landing their first client to scaling past $30K and $40K a month, to keep you accountable and moving forward.</p>
+      <div class="help-card">
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">01</div>
+            <div class="step-body">
+              <h3>The Right Offer, From Day One</h3>
+              <p>We hand you the exact offers and niches generating the most revenue in this space right now. Then we show you how to position yourself so that when you walk into a conversation with a business owner, your lack of experience, portfolio, or track record never becomes a reason they say no.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">02</div>
+            <div class="step-body">
+              <h3>AI Systems and Automation</h3>
+              <p>You get access to our full library of pre-built AI workflows, systems, and SOPs so you can deliver high-quality results for clients from day one, without building anything from scratch.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">03</div>
+            <div class="step-body">
+              <h3>Client Acquisition System</h3>
+              <p>We give you the exact outreach methods, scripts, and ad creatives our students are using right now to book calls with qualified business owners, so your calendar fills without you guessing what to say or who to target.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">04</div>
+            <div class="step-body">
+              <h3>Dedicated Sales Coach</h3>
+              <p>A real, active salesperson inside the program whose only job is to get you closing. They walk you through every moment of the sales call, from opening to signed deal, so by the time you get on your first real call, you have already done it.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">05</div>
+            <div class="step-body">
+              <h3>Community and Direct Support</h3>
+              <p>You get direct access to Nick and his team, plus a community of people at every stage of the same journey, from landing their first client to scaling past $30K and $40K a month, to keep you accountable and moving forward.</p>
+            </div>
+          </div>
+          <div class="step result">
+            <div class="step-num" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg></div>
+            <div class="step-body"><h3>The Result: <span>Your First Clients, Then $5–25K/Month</span></h3></div>
+          </div>
         </div>
       </div>
       <div class="help-cta">
