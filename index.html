@@ -353,6 +353,97 @@
     /* Replace .typeform-embed contents with the Typeform embed code */
     .typeform-embed { width: 100%; height: 100%; display: grid; place-items: center; font-size: 22px; font-weight: 700; color: #6b6b6b; }
     body.modal-open { overflow: hidden; }
+
+    /* ================= MOBILE TUNING ================= */
+    @media (max-width: 640px) {
+      .container { padding: 0 16px; }
+      section, .results, .types, .help, .about { padding-top: 52px; padding-bottom: 56px; }
+
+      /* Top bar */
+      .brand-bar .bar-inner { padding: 9px 16px; }
+      .brand { font-size: 16px; gap: 9px; }
+      .brand img { width: 30px; }
+
+      /* Hero: eyebrow, headline, sub, video, button and badge above the fold */
+      .hero { padding-top: 14px; }
+      .hero > .container > .pill {
+        white-space: nowrap; font-size: 9.6px; letter-spacing: -0.005em;
+        padding: 6px 11px; gap: 3px; max-width: 100%;
+      }
+      .hero h1 { font-size: 25.5px; line-height: 1.12; margin-top: 14px; letter-spacing: -0.045em; }
+      .hero .sub { font-size: 13.5px; line-height: 1.5; margin-top: 10px; }
+      .video-wrap { margin-top: 16px; }
+      .video-placeholder .play { width: 60px; height: 60px; box-shadow: 0 0 0 7px rgba(194,171,88,0.18); }
+      .video-placeholder .play svg { width: 22px; height: 22px; }
+      .video-placeholder { gap: 10px; }
+      .video-placeholder span { font-size: 13px; }
+      .hero-cta { margin-top: 16px; }
+      .btn { padding: 14px 22px; font-size: 14.5px; gap: 10px; }
+      .guarantee-pill { margin-top: 12px; font-size: 11.5px; padding: 6px 12px; gap: 6px; }
+      .guarantee-pill svg { width: 13px; height: 13px; }
+
+      .call-list { margin-top: 32px; }
+      .call-list li { font-size: 14px; }
+
+      /* Stats: 3 across */
+      .stats { flex-direction: row; gap: 0; margin-top: 32px; padding: 26px 0 34px; }
+      .stat { flex: 1; min-width: 0; padding: 0 6px; }
+      .stat + .stat { border-left: 1px solid var(--line); }
+      .stat strong { font-size: 19px; }
+      .stat small { font-size: 8.5px; letter-spacing: 0.1em; margin-top: 6px; }
+
+      /* Guarantee cards */
+      .guarantees { padding: 28px 0; gap: 12px; }
+      .g-card { padding: 18px 18px; }
+      .g-card h3 { font-size: 15.5px; }
+      .g-card p { font-size: 13px; }
+
+      /* Shared section headings */
+      .results h2, .types h2, .help h2, .about h2 { font-size: 27px; }
+      .kicker-gold { font-size: 11px; margin-bottom: 10px; }
+      .results .sub, .help .sub { font-size: 14.5px; margin-top: 14px; }
+
+      /* Results cards */
+      .cases { margin-top: 30px; gap: 14px; }
+      .case { padding: 20px 18px 18px; }
+      .case-icon { width: 38px; height: 38px; }
+      .case-head h3 { font-size: 14.5px; }
+      .case-head p { font-size: 12px; }
+      .case .num { font-size: 25px; margin-top: 14px; }
+      .case .label { font-size: 12px; }
+      .case .desc { font-size: 13.5px; margin-top: 10px; }
+      .case .more { margin-top: 14px; font-size: 13px; }
+
+      /* 2 types */
+      .two-col { margin-top: 30px; gap: 14px; }
+      .type-card { padding: 22px 18px; }
+      .type-card h3 { font-size: 18.5px; }
+      .type-card p { font-size: 13.5px; line-height: 1.65; margin-top: 8px; }
+      .pill-list { margin-top: 18px; gap: 8px; }
+      .pill-list li { font-size: 13.5px; padding: 9px 12px; gap: 10px; }
+      .pill-list .dot { width: 17px; height: 17px; }
+      .pill-list .dot svg { width: 9px; height: 9px; }
+
+      /* 5-step system */
+      .help-card { margin-top: 30px; padding: 24px 16px 22px; }
+      .steps::before { left: 16px; top: 17px; bottom: 17px; }
+      .step { grid-template-columns: 34px 1fr; gap: 14px; padding-bottom: 20px; }
+      .step + .step .step-body { padding-top: 20px; }
+      .step + .step .step-num { margin-top: 20px; }
+      .step-num { width: 34px; height: 34px; font-size: 12px; box-shadow: 0 0 0 4px #fff; }
+      .step h3 { font-size: 16.5px; margin-top: 5px; }
+      .step p { font-size: 13.5px; line-height: 1.65; margin-top: 6px; }
+      .step.result h3 { font-size: 15px; }
+      .step.result .step-num svg { width: 15px; height: 15px; }
+      .help-cta { margin-top: 30px; }
+      .help h2 br, .types h2 br { display: none; }
+      section.guarantee-band { padding: 0; }
+
+      /* About */
+      .about-card { padding: 20px; gap: 22px; }
+      .about .copy { font-size: 14.5px; margin-top: 18px; }
+      .about-cta { margin-top: 34px; }
+    }
   </style>
 </head>
 <body>
@@ -411,7 +502,7 @@
   </section>
 
   <!-- ================= GUARANTEES ================= -->
-  <section class="band">
+  <section class="band guarantee-band">
     <div class="container guarantees">
       <div class="g-card">
         <h3>7-Day Money Back</h3>
@@ -438,7 +529,7 @@
   <!-- ================= TWO TYPES ================= -->
   <section class="band types">
     <div class="container">
-      <h2>We Work With <span class="gold">2 Types</span> Of<br />AI Agency Owners</h2>
+      <h2>We Work With <span class="gold">2 Types</span> Of <br />AI Agency Owners</h2>
       <div class="two-col">
         <div class="type-card">
           <h3>Starting From Zero</h3>
@@ -468,7 +559,7 @@
   <section class="help">
     <div class="container">
       <p class="kicker-gold">How We Help You</p>
-      <h2>The <span class="gold">5-Step System</span> Behind Every<br />Agency Owner’s Breakthrough</h2>
+      <h2>The <span class="gold">5-Step System</span> Behind Every <br />Agency Owner’s Breakthrough</h2>
       <p class="sub">Every AI Accelerator student gets a fully customized roadmap built around these 5 systems, operated in 50+ agencies.</p>
       <div class="help-card">
         <div class="steps">
@@ -509,7 +600,7 @@
           </div>
           <div class="step result">
             <div class="step-num" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg></div>
-            <div class="step-body"><h3>The Result: <span>Your First Clients, Then $5–25K/Month</span></h3></div>
+            <div class="step-body"><h3>The Result: <span>Your First Clients, Then <span style="white-space:nowrap">$5–25K/Month</span></span></h3></div>
           </div>
         </div>
       </div>
