@@ -212,10 +212,18 @@
     .about-photo {
       margin-top: 24px;
       border-radius: 12px; overflow: hidden;
-      aspect-ratio: 376 / 250;
-      background: linear-gradient(135deg, #e9d79a, #b99b48);
+      border: 1px solid var(--line);
+      background: #fff;
     }
-    .about-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .about-photo img { width: 100%; height: auto; }
+    .socials { margin-top: 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .social {
+      display: flex; align-items: center; gap: 12px;
+      background: var(--sand); border: 1px solid var(--line); border-radius: 12px; padding: 14px;
+    }
+    .social svg { width: 36px; height: 36px; flex: none; }
+    .social strong { display: block; font-size: 20px; font-weight: 700; color: var(--ink); line-height: 1.1; letter-spacing: -0.02em; }
+    .social small { display: block; font-size: 12.5px; color: var(--muted); line-height: 1.3; }
     .about h2 { font-size: clamp(32px, 4vw, 44px); }
     .about .byline {
       margin-top: 12px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.2em;
@@ -352,9 +360,29 @@
   <section class="band about">
     <div class="container">
       <div class="about-card">
-        <div class="about-photo">
-          <!-- Drop the founder photo at assets/founder.jpg -->
-          <img src="assets/founder.jpg" alt="Nick Puru, founder of AI Accelerator" onerror="this.remove()" />
+        <div>
+          <div class="about-photo">
+            <img src="assets/founder.jpg" alt="Nick Puru, founder of AI Accelerator" />
+          </div>
+          <div class="socials">
+            <div class="social">
+              <svg viewBox="0 0 36 36" aria-label="Instagram" role="img">
+                <defs><radialGradient id="igGrad" cx="30%" cy="107%" r="150%"><stop offset="0" stop-color="#fdf497"/><stop offset=".05" stop-color="#fdf497"/><stop offset=".45" stop-color="#fd5949"/><stop offset=".6" stop-color="#d6249f"/><stop offset=".9" stop-color="#285AEB"/></radialGradient></defs>
+                <rect width="36" height="36" rx="9" fill="url(#igGrad)"/>
+                <rect x="8" y="8" width="20" height="20" rx="6" fill="none" stroke="#fff" stroke-width="2.4"/>
+                <circle cx="18" cy="18" r="4.8" fill="none" stroke="#fff" stroke-width="2.4"/>
+                <circle cx="24" cy="12" r="1.5" fill="#fff"/>
+              </svg>
+              <div><strong>83K</strong><small>Instagram Followers</small></div>
+            </div>
+            <div class="social">
+              <svg viewBox="0 0 36 36" aria-label="YouTube" role="img">
+                <rect y="5" width="36" height="26" rx="7" fill="#FF0000"/>
+                <path d="M14.5 12.5v11l9.5-5.5z" fill="#fff"/>
+              </svg>
+              <div><strong>96K</strong><small>YouTube Subscribers</small></div>
+            </div>
+          </div>
         </div>
         <div>
           <h2>Why Listen To Me?</h2>
