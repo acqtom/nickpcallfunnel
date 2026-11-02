@@ -241,6 +241,45 @@
     .about .copy { margin-top: 26px; display: grid; gap: 14px; font-size: 15.5px; line-height: 1.7; }
     .about-cta { text-align: center; margin-top: 52px; }
 
+    /* ---------- Two types ---------- */
+    .types { padding: 84px 0 92px; }
+    .types .gold { color: var(--gold-text); }
+    .types h2, .help h2 { font-size: clamp(30px, 4.2vw, 46px); text-align: center; }
+    .two-col { max-width: 1000px; margin: 50px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .type-card {
+      position: relative; background: #fff; border: 1px solid var(--line); border-radius: 16px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.05); padding: 34px; display: flex; flex-direction: column;
+    }
+    .type-card::before {
+      content: ""; position: absolute; top: -1px; left: 20%; right: 20%; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .type-card h3 { font-size: 22px; color: var(--ink); font-weight: 700; letter-spacing: -0.03em; }
+    .type-card p { margin-top: 12px; font-size: 15.5px; line-height: 1.7; color: var(--muted); flex: 1; }
+    .pill-list { list-style: none; display: grid; gap: 11px; margin-top: 28px; }
+    .pill-list li {
+      display: flex; align-items: center; gap: 12px; padding: 11px 18px; font-size: 15px; color: var(--ink);
+      background: #fff; border: 1px solid var(--line); border-radius: 10px;
+    }
+    .pill-list .dot { width: 20px; height: 20px; border-radius: 50%; flex: none; display: grid; place-items: center; background: var(--gold); }
+    .pill-list .dot svg { width: 11px; height: 11px; }
+
+    /* ---------- How we help ---------- */
+    .help { padding: 84px 0 92px; }
+    .help .kicker-gold { text-align: center; }
+    .help .sub { max-width: 680px; margin: 18px auto 0; text-align: center; font-size: 18px; color: var(--body); }
+    .help-list { max-width: 760px; margin: 48px auto 0; display: grid; gap: 34px; }
+    .help-item { border-left: 3px solid var(--gold); padding: 2px 0 2px 24px; }
+    .help-item .n { font-size: 11.5px; font-weight: 700; letter-spacing: .14em; color: var(--gold-text); }
+    .help-item h3 { margin-top: 4px; font-size: 20px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; }
+    .help-item p { margin-top: 8px; font-size: 15.5px; line-height: 1.8; color: var(--muted); }
+    .help-cta { text-align: center; margin-top: 48px; }
+
+    @media (max-width: 760px) {
+      .two-col { grid-template-columns: 1fr; }
+      .type-card { padding: 26px; }
+    }
+
     /* ---------- Footer ---------- */
     footer { padding: 36px 0 56px; }
     .foot { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
@@ -362,6 +401,76 @@
       <p class="sub">Every testimonial below is from students who struggled with what service to sell or how to land clients. 90 days after following the AI Accelerators blueprint, these were their results:</p>
 
       <div class="cases" id="cases"></div>
+    </div>
+  </section>
+
+  <!-- ================= TWO TYPES ================= -->
+  <section class="band types">
+    <div class="container">
+      <h2>We Work With <span class="gold">2 Types</span> Of<br />AI Agency Owners</h2>
+      <div class="two-col">
+        <div class="type-card">
+          <h3>Starting From Zero</h3>
+          <p>You’ve seen what AI can do and you know businesses will pay for it. But you don’t know which service to sell, who to sell it to, or how to land a client when you’ve got no portfolio and no track record. You’ve watched the YouTube videos and tried piecing it together, but there’s no clear path. You’ve got the drive. You just need the exact steps.</p>
+          <ul class="pill-list">
+            <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg></span>Ready to start an AI agency</li>
+            <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg></span>No clients yet</li>
+            <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg></span>Not sure what service to sell</li>
+            <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg></span>Want the full step by step process</li>
+          </ul>
+        </div>
+        <div class="type-card">
+          <h3>Started But Stuck</h3>
+          <p>You’ve already started. Maybe you’ve landed a client or two, maybe you’ve built a few automations. But the revenue is inconsistent, your outreach isn’t converting, and you’re doing everything yourself. You know the opportunity is real, but you’re stuck below where you want to be. You don’t need more theory. You need someone who’s already scaled it showing you what to fix.</p>
+          <ul class="pill-list">
+            <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg></span>Already running an AI agency</li>
+            <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg></span>Inconsistent clients and revenue</li>
+            <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg></span>Need a predictable way to land clients</li>
+            <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg></span>Want someone experienced to help you scale</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= HOW WE HELP ================= -->
+  <section class="help">
+    <div class="container">
+      <p class="kicker-gold">How We Help You</p>
+      <h2>The System Is Simple,<br />Here Is Every Piece Of It</h2>
+      <p class="sub">Most programs teach you what to do, we hand you everything you need to actually do it.</p>
+      <div class="help-list">
+        <div class="help-item">
+          <div class="n">01</div>
+          <h3>The Right Offer, From Day One</h3>
+          <p>We hand you the exact offers and niches generating the most revenue in this space right now. Then we show you how to position yourself so that when you walk into a conversation with a business owner, your lack of experience, portfolio, or track record never becomes a reason they say no.</p>
+        </div>
+        <div class="help-item">
+          <div class="n">02</div>
+          <h3>AI Systems and Automation</h3>
+          <p>You get access to our full library of pre-built AI workflows, systems, and SOPs so you can deliver high-quality results for clients from day one, without building anything from scratch.</p>
+        </div>
+        <div class="help-item">
+          <div class="n">03</div>
+          <h3>Client Acquisition System</h3>
+          <p>We give you the exact outreach methods, scripts, and ad creatives our students are using right now to book calls with qualified business owners, so your calendar fills without you guessing what to say or who to target.</p>
+        </div>
+        <div class="help-item">
+          <div class="n">04</div>
+          <h3>Dedicated Sales Coach</h3>
+          <p>A real, active salesperson inside the program whose only job is to get you closing. They walk you through every moment of the sales call, from opening to signed deal, so by the time you get on your first real call, you have already done it.</p>
+        </div>
+        <div class="help-item">
+          <div class="n">05</div>
+          <h3>Community and Direct Support</h3>
+          <p>You get direct access to Nick and his team, plus a community of people at every stage of the same journey, from landing their first client to scaling past $30K and $40K a month, to keep you accountable and moving forward.</p>
+        </div>
+      </div>
+      <div class="help-cta">
+        <a class="btn" href="#book" data-open-booking>Apply For Your Free Strategy Call
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
     </div>
   </section>
 
