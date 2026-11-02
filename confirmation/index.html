@@ -86,7 +86,7 @@
     .vid.gold-play .play svg { fill: var(--ink); stroke: var(--ink); width: 30px; height: 30px; }
 
     /* ---------- Hero ---------- */
-    .hero { padding: 32px 0 64px; text-align: center; }
+    .hero { padding: 40px 0 64px; text-align: center; }
     .confirm-badge {
       display: inline-flex; align-items: center; gap: 12px; text-align: left;
       background: #fff; border: 1px solid var(--line); border-radius: 12px;
@@ -290,15 +290,18 @@
     }
 
     /* ---------- Brand header ---------- */
-    .brand-bar { padding: 26px 24px 0; display: flex; justify-content: center; }
+    .brand-bar { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid #e7e5e0; }
+    .brand-bar .bar-inner { max-width: 1200px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: flex-start; }
     .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: #161616; font-weight: 700; font-size: 20px; letter-spacing: -0.02em; }
-    .brand img { width: 44px; height: auto; }
+    .brand img { width: 40px; height: auto; }
   </style>
 </head>
 <body>
 
   <header class="brand-bar">
-    <a class="brand" href="../"><img src="../assets/logo.png" alt="" />AI Accelerators</a>
+    <div class="bar-inner">
+      <a class="brand" href="../"><img src="../assets/logo.png" alt="" />AI Accelerators</a>
+    </div>
   </header>
 
   <!-- ================= HERO + STEP 1 ================= -->
